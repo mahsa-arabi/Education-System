@@ -3,7 +3,9 @@
 //#include "Model/Student.h"
 //#include "Model/Professor.h"
 //#include "Model/Course.h"
+#include <fstream>
 #include "View/View.h"
+#include "Model/DoubleMajorStudent.h"
 
 using namespace std;
 
@@ -42,5 +44,19 @@ int main() {
     Controller myController{"99-1"};
     View myView{myController};
     myView.exec();
+
+//    vector<string> passedCourses{"Math", "Physics", "AP"};
+//    map<string, double> semesterCourses{{"Database", 18}, {"Statistics", 17.5}};
+//    DoubleMajorStudent student{"952023016", "Farhang",
+//                    "Doroudian", 25.7, passedCourses, semesterCourses,"art"};
+//
+//    ofstream output(" DoubleMajorStudent.txt");
+//    output << student << endl;
+//
+//    DoubleMajorStudent stu;
+//    ifstream input(" DoubleMajorStudent.txt");
+//    input >> stu;
+//    cout << stu << endl;
+
     return 0;
 }

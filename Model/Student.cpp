@@ -92,3 +92,11 @@ void Student::setCurrentSemesterCourses(const map<std::string, double> &currentS
 const map<std::string, double> &Student::getCurrentSemesterCourses() const {
     return currentSemesterCourses;
 }
+
+const string &Student::getStudentId() const {
+    return studentId;
+}
+
+const vector<std::string> &Student::getPassedCourses() const {
+    return passedCourses;
+}

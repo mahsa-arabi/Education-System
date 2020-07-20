@@ -77,6 +77,7 @@ CMakeFiles/TA_19.dir/View/View.cpp.obj: ../View/View.h
 
 CMakeFiles/TA_19.dir/main.cpp.obj: ../Controller/Controller.h
 CMakeFiles/TA_19.dir/main.cpp.obj: ../Model/Course.h
+CMakeFiles/TA_19.dir/main.cpp.obj: ../Model/DoubleMajorStudent.h
 CMakeFiles/TA_19.dir/main.cpp.obj: ../Model/Person.h
 CMakeFiles/TA_19.dir/main.cpp.obj: ../Model/Professor.h
 CMakeFiles/TA_19.dir/main.cpp.obj: ../Model/Student.h
