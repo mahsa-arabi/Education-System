@@ -20,6 +20,10 @@ public:
     Course(std::string courseName, std::string profLastName, std::string semester
            , std::vector<std::string> preCourses);
     std::string toString() const;
+
+    const std::string &getCourseName() const;
+
+    const std::string &getProfLastName() const;
 };
 
 

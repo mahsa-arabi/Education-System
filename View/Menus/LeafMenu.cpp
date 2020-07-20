@@ -50,7 +50,10 @@ void LeafMenu::run() {
     }
 
     else if(name == "Show Professor Courses In Current Semester"){
-
+        string ID;
+        cout << "Enter Professor ID:";
+        cin >> ID;
+        showProfSemesterCourses(ID);
     }
 
     else if(name == "Submit Grade"){
@@ -122,4 +125,12 @@ void LeafMenu::showStuSemesterCourses(std::string studentId) {
             cout << name <<endl;
             iter++;
         }
+}
+
+void LeafMenu::showProfSemesterCourses(std::string profId) {
+    for(const auto& crs : controller.currentSemesterCourses){
+        if(crs.getProfLastName()== controller.findProf(profId).getLastName()){
+            cout << crs.getCourseName() <<endl;
+        }
+    }
 }

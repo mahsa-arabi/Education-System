@@ -45,3 +45,11 @@ std::string Course::toString() const {
     out << courseName <<'\t' << profLastName << endl;
     return out.str();
 }
+
+const string &Course::getProfLastName() const {
+    return profLastName;
+}
+
+const string &Course::getCourseName() const {
+    return courseName;
+}
