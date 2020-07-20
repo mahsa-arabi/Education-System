@@ -11,6 +11,7 @@ public:
     virtual void run() override;
     static void showAllCourses();
     static void showSemesterCourses();
+    static void showStuSemesterCourses(std::string studentId);
 };
 
 

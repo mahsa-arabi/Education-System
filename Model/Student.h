@@ -24,6 +24,8 @@ public:
     virtual double calculateSalary() const override;
     std::string toString() const;
 
+    const std::map<std::string, double> &getCurrentSemesterCourses() const;
+
     void setPassedCourses(const std::vector<std::string> &passedCourses);
 
     void setCurrentSemesterCourses(const std::map<std::string, double> &currentSemesterCourses);

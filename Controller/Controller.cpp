@@ -131,7 +131,7 @@ bool Controller:: inProfessorsByLastName(const std::string& last) const{
     return false;
 }
 
-Student& Controller:: findStudent(string ID) const{
+Student& Controller:: findStudent(string ID){
     for( auto& stu : students ){
         if(stu.studentId == ID){
             return stu;
@@ -152,7 +152,7 @@ void Controller::dropCourse(const std::string &studentID, const std::string &cou
         throw invalid_argument("The course in not in student current semester courses list!!");
     }
 }
-bool Controller::inStuCourses(const std::string &studentId,const std::string &courseName) const{
+bool Controller::inStuCourses(const std::string &studentId,const std::string &courseName) {
     if(inCourses(courseName)) {
         auto iter = findStudent(studentId).currentSemesterCourses.begin();
         while(iter != findStudent(studentId).currentSemesterCourses.end()){
