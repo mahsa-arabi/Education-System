@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/asus/CLionProjects/EducationSystem2/Controller/Controller.cpp" "C:/Users/asus/CLionProjects/EducationSystem2/cmake-build-debug/CMakeFiles/TA_19.dir/Controller/Controller.cpp.obj"
   "C:/Users/asus/CLionProjects/EducationSystem2/Model/Course.cpp" "C:/Users/asus/CLionProjects/EducationSystem2/cmake-build-debug/CMakeFiles/TA_19.dir/Model/Course.cpp.obj"
+  "C:/Users/asus/CLionProjects/EducationSystem2/Model/DoubleMajorStudent.cpp" "C:/Users/asus/CLionProjects/EducationSystem2/cmake-build-debug/CMakeFiles/TA_19.dir/Model/DoubleMajorStudent.cpp.obj"
   "C:/Users/asus/CLionProjects/EducationSystem2/Model/Person.cpp" "C:/Users/asus/CLionProjects/EducationSystem2/cmake-build-debug/CMakeFiles/TA_19.dir/Model/Person.cpp.obj"
   "C:/Users/asus/CLionProjects/EducationSystem2/Model/Professor.cpp" "C:/Users/asus/CLionProjects/EducationSystem2/cmake-build-debug/CMakeFiles/TA_19.dir/Model/Professor.cpp.obj"
   "C:/Users/asus/CLionProjects/EducationSystem2/Model/Student.cpp" "C:/Users/asus/CLionProjects/EducationSystem2/cmake-build-debug/CMakeFiles/TA_19.dir/Model/Student.cpp.obj"
