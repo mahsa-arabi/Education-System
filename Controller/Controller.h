@@ -29,13 +29,15 @@ public:
     void addCourse(std::string courseName, std::string profLast, std::string semester,
             std::vector<std::string> pre);
     void takeCourse(const std::string& studentID, const std::string& courseName);
-    Student& findStudent(std::string ID);
+    void dropCourse(const std::string& studentID, const std::string& courseName);
+    Student& findStudent(std::string ID)const ;
 
 
     bool inStudents(const std::string& ID) const;
     bool inProfessors(const std::string& ID) const;
     bool inProfessorsByLastName(const std::string& last) const;
     bool inCourses(const std::string& courseName) const;
+    bool inStuCourses(const std::string& studentId,const std::string& courseName) const;
 };
 
 
