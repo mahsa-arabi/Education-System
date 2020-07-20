@@ -11,7 +11,7 @@ void LeafMenu::run() {
     setCurrentMenu(parent);
 
     if(name == "Show This Semester Courses"){
-
+        showSemesterCourses();
     }
 
     else if(name == "Take Course"){
@@ -72,10 +72,23 @@ void LeafMenu::run() {
     }
 
     else if(name == "Show All Courses"){
+        showAllCourses();
 
     }
 
     else{
         throw invalid_argument("This Menu hase not been defined!!");
+    }
+}
+
+void LeafMenu::showAllCourses() {
+    for(const auto& crs : controller.courses){
+        cout << crs.toString() << endl;
+    }
+}
+
+void LeafMenu::showSemesterCourses() {
+    for(const auto& crs : controller.currentSemesterCourses){
+        cout << crs.toString() << endl;
     }
 }
