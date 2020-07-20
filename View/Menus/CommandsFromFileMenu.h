@@ -7,6 +7,7 @@
 
 
 class CommandsFromFileMenu : public Menu{
+
 public:
     CommandsFromFileMenu(std::string name, Menu* parent);
     virtual void showSubMenus() const override;

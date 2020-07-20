@@ -1,4 +1,5 @@
 #include "LeafMenu.h"
+#include "CommandsFromFileMenu.h"
 
 using namespace std;
 
@@ -77,7 +78,18 @@ void LeafMenu::run() {
     }
 
     else if(name == "Add Professor"){
-
+        string ID;
+        cout << "Enter Professor ID: ";
+        cin >> ID;
+        string first;
+        cout << "Enter Professor first name: ";
+        cin >> first;
+        string last;
+        cout << "Enter Professor last name: ";
+        cin >> last;
+        string title;
+        cout << "Enter Professor title: ";
+        cin >> title;
     }
 
     else if(name == "Show Professors"){
@@ -98,11 +110,27 @@ void LeafMenu::run() {
     }
 
     else if(name == "Show Students"){
-
+        CommandsFromFileMenu::showStudents();
     }
 
     else if(name == "Add Course"){
-
+        string courseName;
+        cout << "Enter course name: ";
+        cin >> courseName;
+        string profLastName;
+        cout << "Enter profLastName: ";
+        cin >> profLastName;
+        vector<string> preCourses;
+        cout << "How many pre courses does it have? ";
+        int a;
+        cin >> a;
+        for (int i = 0; i <a ; ++i) {
+            string preCourse;
+            cout << "Enter "<<i<<" th pre course: ";
+            cin >> preCourse;
+            preCourses.push_back(preCourse);
+        }
+        controller.addCourse(courseName,profLastName,controller.currentSemester,preCourses);
     }
 
     else if(name == "Show All Courses"){
