@@ -140,6 +140,9 @@ void LeafMenu::run() {
     }
     else if(name == "Show Current Semester Courses"){
         showAllCourses();
+    }else if(name == "Read Members From File "){
+
+    }else if(name == "Calculate Total Salary"){
 
     }
 
