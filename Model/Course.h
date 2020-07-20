@@ -11,6 +11,10 @@ class Course {
     friend std::istream& operator>>(std::istream & input, Course& course);
 private:
     std::string courseName;
+public:
+    const std::string &getSemester() const;
+
+private:
     std::string profLastName;
     std::string semester;
     std::vector<std::string> preCourses;

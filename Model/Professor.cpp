@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Professor.h"
 
 using namespace std;
@@ -29,7 +30,9 @@ std::istream& operator>>(std::istream & input, Professor& prof){
     return input;
 }
 
-std::string Professor::toString() const {
-    cout << profId << '\t' << getFirstName() << '\t' <<
-           getLastName() << endl;
+std::string Professor::toString() const{
+    ostringstream output;
+    output << profId << '\t' << getFirstName() << '\t' <<
+           getLastName() ;
+    return output.str();
 }

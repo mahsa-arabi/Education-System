@@ -42,7 +42,7 @@ std::istream& operator>>(std::istream & input, Course& course){
 
 std::string Course::toString() const {
     ostringstream out;
-    out << courseName <<'\t' << profLastName << endl;
+    out << courseName <<'\t' << profLastName ;
     return out.str();
 }
 
@@ -52,4 +52,8 @@ const string &Course::getProfLastName() const {
 
 const string &Course::getCourseName() const {
     return courseName;
+}
+
+const string &Course::getSemester() const {
+    return semester;
 }

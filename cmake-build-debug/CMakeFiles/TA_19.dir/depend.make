@@ -45,6 +45,7 @@ CMakeFiles/TA_19.dir/View/Menus/LeafMenu.cpp.obj: ../Model/Course.h
 CMakeFiles/TA_19.dir/View/Menus/LeafMenu.cpp.obj: ../Model/Person.h
 CMakeFiles/TA_19.dir/View/Menus/LeafMenu.cpp.obj: ../Model/Professor.h
 CMakeFiles/TA_19.dir/View/Menus/LeafMenu.cpp.obj: ../Model/Student.h
+CMakeFiles/TA_19.dir/View/Menus/LeafMenu.cpp.obj: ../View/Menus/CommandsFromFileMenu.h
 CMakeFiles/TA_19.dir/View/Menus/LeafMenu.cpp.obj: ../View/Menus/LeafMenu.cpp
 CMakeFiles/TA_19.dir/View/Menus/LeafMenu.cpp.obj: ../View/Menus/LeafMenu.h
 CMakeFiles/TA_19.dir/View/Menus/LeafMenu.cpp.obj: ../View/Menus/Menu.h

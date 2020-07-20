@@ -90,6 +90,7 @@ void LeafMenu::run() {
         string title;
         cout << "Enter Professor title: ";
         cin >> title;
+        controller.addProfessor(ID,first,last,title);
     }
 
     else if(name == "Show Professors"){
@@ -126,7 +127,7 @@ void LeafMenu::run() {
         cin >> a;
         for (int i = 0; i <a ; ++i) {
             string preCourse;
-            cout << "Enter "<<i<<" th pre course: ";
+            cout << "Enter "<<(i+1)<<" th pre course: ";
             cin >> preCourse;
             preCourses.push_back(preCourse);
         }
@@ -134,6 +135,10 @@ void LeafMenu::run() {
     }
 
     else if(name == "Show All Courses"){
+        showAllCourses();
+
+    }
+    else if(name == "Show Current Semester Courses"){
         showAllCourses();
 
     }
@@ -175,6 +180,15 @@ void LeafMenu::showProfSemesterCourses(std::string profId) {
 void LeafMenu::showProfessors() {
     for(const auto& prof : controller.professors){
         cout << prof.toString() << endl;
+    }
+
+}
+
+void LeafMenu::showCurrentCourses() {
+    for (const auto& crs : controller.courses) {
+        if(crs.getSemester()==controller.currentSemester){
+            crs.toString();
+        }
     }
 
 }

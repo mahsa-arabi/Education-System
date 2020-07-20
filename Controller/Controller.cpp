@@ -91,6 +91,8 @@ void Controller:: addCourse(std::string courseName, std::string profLast, std::s
         if( crs.semester == currentSemester){
             currentSemesterCourses.push_back(crs);
         }
+    }else{
+        throw invalid_argument("the course is already is in courses (or) the professors is not in the list!");
     }
 
 }
