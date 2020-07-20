@@ -17,3 +17,5 @@ const std::string &Person::getLastName() const {
 double Person::getWorkHours() const {
     return workHours;
 }
+
+

@@ -17,6 +17,7 @@ public:
     Person() = default;
     virtual ~Person() = default;
     virtual double calculateSalary() const = 0;   // pure virtual function
+
 };
 
 

@@ -13,6 +13,7 @@ public:
     static void showSemesterCourses();
     static void showStuSemesterCourses(std::string studentId);
     static void showProfSemesterCourses(std::string profId);
+    static void showProfessors();
 };
 
 

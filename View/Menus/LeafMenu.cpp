@@ -93,7 +93,7 @@ void LeafMenu::run() {
     }
 
     else if(name == "Show Professors"){
-
+        showProfessors();
     }
 
     else if(name == "Add Student"){
@@ -170,4 +170,11 @@ void LeafMenu::showProfSemesterCourses(std::string profId) {
             cout << crs.getCourseName() <<endl;
         }
     }
+}
+
+void LeafMenu::showProfessors() {
+    for(const auto& prof : controller.professors){
+        cout << prof.toString() << endl;
+    }
+
 }
