@@ -32,8 +32,8 @@ public:
     void dropCourse(const std::string& studentID, const std::string& courseName);
     Student& findStudent(std::string ID);
     Professor& findProf(std::string ID);
-    double calculateStuSalary(std::string ID);
-    double calculateProfSalary(std::string ID);
+//    double calculateStuSalary(std::string ID);
+//    double calculateProfSalary(std::string ID);
     bool inStudents(const std::string& ID) const;
     bool inProfessors(const std::string& ID) const;
     bool inProfessorsByLastName(const std::string& last) const;

@@ -174,12 +174,12 @@ bool Controller::inStuCourses(const std::string &studentId,const std::string &co
     }
     return false;
 }
-double Controller::calculateStuSalary(std::string ID) {
-    return (findStudent(ID).getWorkHours() * 5000);
-}
-double Controller::calculateProfSalary(std::string ID) {
-    return (findProf(ID).getWorkHours() * 10000);
-}
+//double Controller::calculateStuSalary(std::string ID) {
+//    return (findStudent(ID).getWorkHours() * 5000);
+//}
+//double Controller::calculateProfSalary(std::string ID) {
+//    return (findProf(ID).getWorkHours() * 10000);
+//}
 void Controller::submitGrade(const std::string& courseName,const std::string& studentId, double grade){
     if(inStuCourses(studentId,courseName)){
         findStudent(studentId).currentSemesterCourses.find(courseName)->second=grade;

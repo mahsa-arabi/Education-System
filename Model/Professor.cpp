@@ -8,7 +8,7 @@ Professor::Professor(std::string id, std::string first, std::string last,
         :  Person(move(first), move(last), wh), profId{move(id)}, title{move(title)} {}
 
 double Professor::calculateSalary() const{
-    return 4'000'000 + 10000*getWorkHours();
+    return ( 4'000'000 + 10000*getWorkHours());
 }
 
 std::ostream& operator<<(std::ostream & output, const Professor& prof){
