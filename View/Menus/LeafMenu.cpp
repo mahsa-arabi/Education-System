@@ -57,7 +57,16 @@ void LeafMenu::run() {
     }
 
     else if(name == "Submit Grade"){
-
+        string courseName;
+        cout << "Enter course name: ";
+        cin >> courseName;
+        string ID;
+        cout << "Enter student number: ";
+        cin >> ID;
+        double grade;
+        cout << "Enter the grade: ";
+        cin >> grade;
+        controller.submitGrade(courseName,ID,grade);
     }
 
     else if(name == "Calculate Professor Salary"){

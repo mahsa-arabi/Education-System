@@ -39,6 +39,7 @@ public:
     bool inProfessorsByLastName(const std::string& last) const;
     bool inCourses(const std::string& courseName) const;
     bool inStuCourses(const std::string& studentId,const std::string& courseName);
+    void submitGrade(const std::string& courseName,const std::string& studentId, double grade);
 };
 
 

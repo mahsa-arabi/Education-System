@@ -178,3 +178,10 @@ double Controller::calculateStuSalary(std::string ID) {
 double Controller::calculateProfSalary(std::string ID) {
     return (findProf(ID).getWorkHours() * 10000);
 }
+void Controller::submitGrade(const std::string& courseName,const std::string& studentId, double grade){
+    if(inStuCourses(studentId,courseName)){
+        findStudent(studentId).currentSemesterCourses.find(courseName)->second=grade;
+    }else{
+        throw invalid_argument("the student doesn't have this course!");
+    }
+}
