@@ -213,11 +213,23 @@ bool Controller::inStuCourses(const std::string &studentId,const std::string &co
 
 
 void Controller::submitGrade(const std::string& courseName,const std::string& studentId, double grade){
-    if(inStuCourses(studentId,courseName)){
-        findStudent(studentId).currentSemesterCourses.find(courseName)->second=grade;
-    }else{
-        throw invalid_argument("the student doesn't have this course!");
+    if(!inCourses(courseName)){
+        throw invalid_argument("The course hasn't found!");
+    }else {
+        if (grade < 0 || grade > 20) {
+            throw invalid_argument("The grade must be between 0 and 20!");
+        } else {
+            if (inStuCourses(studentId, courseName)) {
+                findStudent(studentId).currentSemesterCourses.find(courseName)->second = grade;
+            } else {
+                throw invalid_argument("the student doesn't have this course!");
+            }
+        }
     }
+    if(grade >= 10){        //add to the passed courses list
+        findStudent(studentId).passedCourses.push_back(courseName);
+    }
+    findStudent(studentId).currentSemesterCourses.erase(courseName);
 }
 void Controller::readMembersFromFile(int membersNumber) {
     string member;

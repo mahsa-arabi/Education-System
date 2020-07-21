@@ -129,7 +129,11 @@ void LeafMenu::run() {
             string preCourse;
             cout << "Enter "<<(i+1)<<" th pre course: ";
             cin >> preCourse;
-            preCourses.push_back(preCourse);
+            if(!controller.inCourses(preCourse)){
+                throw invalid_argument("The course hasn't found!");
+            }else {
+                preCourses.push_back(preCourse);
+            }
         }
         controller.addCourse(courseName,profLastName,controller.currentSemester,preCourses);
     }

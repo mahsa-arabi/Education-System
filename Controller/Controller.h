@@ -33,8 +33,7 @@ public:
     void dropCourse(const std::string& studentID, const std::string& courseName);
     Student& findStudent(std::string ID);
     Professor& findProf(std::string ID);
-//    double calculateStuSalary(std::string ID);
-//    double calculateProfSalary(std::string ID);
+    Course& findCourse(std::string courseName);
     bool inStudents(const std::string& ID) const;
     bool inProfessors(const std::string& ID) const;
     bool inProfessorsByLastName(const std::string& last) const;
@@ -43,6 +42,7 @@ public:
     void submitGrade(const std::string& courseName,const std::string& studentId, double grade);
     void readMembersFromFile(int membersNumber);
     virtual double CalculateTotalSalaryMath();
+    bool isPassed(std::string id,std::string courseName);
 };
 
 
