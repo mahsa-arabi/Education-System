@@ -54,8 +54,8 @@ void View::makeMenus( Menu* root ){
     coursesMenu->setSubMenus(vector<Menu*>
             {addCourses, managerShowThisSemesterCourses, showAllCourses});
     //make Math class Menu
-    auto ReadMembersFromFile=new LeafMenu{"Read Members From File ",mathClassMenu};
-    auto  CalculateTotalSalary=new LeafMenu{" Calculate Total Salary ",mathClassMenu};
+    auto ReadMembersFromFile=new LeafMenu{"Read Members From File",mathClassMenu};
+    auto  CalculateTotalSalary=new LeafMenu{"Calculate Total Salary",mathClassMenu};
     mathClassMenu->setSubMenus(vector<Menu*>{ReadMembersFromFile,CalculateTotalSalary});
 
 }

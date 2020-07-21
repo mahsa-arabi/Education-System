@@ -140,14 +140,17 @@ void LeafMenu::run() {
     }
     else if(name == "Show Current Semester Courses"){
         showAllCourses();
-    }else if(name == "Read Members From File "){
+
+    }else if(name == "Read Members From File"){
+        int numOfMembers;
+        cout << "Enter number of commands: ";
+        cin >> numOfMembers;
+        controller.readMembersFromFile(numOfMembers);
 
     }else if(name == "Calculate Total Salary"){
-
-    }
-
-    else{
-        throw invalid_argument("This Menu hase not been defined!!");
+       cout<< controller.CalculateTotalSalaryMath()<<endl;
+    }else{
+        throw invalid_argument("This Menu has not been defined!!");
     }
 }
 

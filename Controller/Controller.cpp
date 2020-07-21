@@ -1,8 +1,10 @@
 #include "Controller.h"
+#include "../Model/DoubleMajorStudent.h"
 #include <fstream>
 #include <vector>
 #include <map>
-
+#include <sstream>
+#include <iterator>
 using namespace std;
 
 Controller::Controller(std::string currentSemester)
@@ -181,4 +183,64 @@ void Controller::submitGrade(const std::string& courseName,const std::string& st
     }else{
         throw invalid_argument("the student doesn't have this course!");
     }
+}
+void Controller::readMembersFromFile(int membersNumber) {
+    string member;
+    char* cmd=new char[1000];
+    ifstream input("members.txt");
+    for (size_t i{1}; i <= membersNumber ; ++i) {
+        try {
+            input.getline(cmd,1000);
+            member = (string) cmd;
+//-------------------------------------------------------------------------
+            // Used to split string around spaces.
+            istringstream ss(member);
+            vector<string> results{};
+            // Traverse through all words
+            do {
+                // Read a word
+                string word;
+                ss >> word;
+                results.push_back(word);
+                // While there is more to read
+            } while (ss);
+//-------------------------------------------------------------------------
+            if (results[0] == "P") {
+                double wh;
+                stringstream ss;
+                ss << results[5];
+                ss >> wh;
+                auto prof=new Professor (results[1], results[2], results[3], wh, results[4]);
+                mathClass.push_back(prof);
+            } else if (results[0] == "S") {
+                double wh;
+                stringstream ss;
+                ss << results[4];
+                ss >> wh;
+                auto stu=new Student (results[1], results[2], results[3], wh, vector<string>{}, map<string, double>{});
+                mathClass.push_back(stu);
+            } else if (results[0] == "D") {
+                double wh;
+                stringstream ss;
+                ss << results[4];
+                ss >> wh;
+                auto dStu=new DoubleMajorStudent( results[1], results[2], results[3], wh,
+                                        vector<string>{}, map<string, double>{}, "DataScience");
+
+                mathClass.push_back(dStu);
+            }
+        }catch(const invalid_argument& e){
+            cout<< e.what() <<endl;
+        }
+    }
+    for(const auto& mem  :mathClass){
+        cout << mem->getFirstName() <<endl;
+    }
+}
+ double Controller:: CalculateTotalSalaryMath(){
+    double totalSalary=0;
+    for(const auto& person: mathClass){
+        totalSalary+=person->calculateSalary();
+    }
+    return totalSalary;
 }
