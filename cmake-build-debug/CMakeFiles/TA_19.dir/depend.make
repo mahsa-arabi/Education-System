@@ -4,6 +4,7 @@
 CMakeFiles/TA_19.dir/Controller/Controller.cpp.obj: ../Controller/Controller.cpp
 CMakeFiles/TA_19.dir/Controller/Controller.cpp.obj: ../Controller/Controller.h
 CMakeFiles/TA_19.dir/Controller/Controller.cpp.obj: ../Model/Course.h
+CMakeFiles/TA_19.dir/Controller/Controller.cpp.obj: ../Model/DoubleMajorStudent.h
 CMakeFiles/TA_19.dir/Controller/Controller.cpp.obj: ../Model/Person.h
 CMakeFiles/TA_19.dir/Controller/Controller.cpp.obj: ../Model/Professor.h
 CMakeFiles/TA_19.dir/Controller/Controller.cpp.obj: ../Model/Student.h
