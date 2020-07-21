@@ -1,10 +1,13 @@
 #include "Controller.h"
 #include "../Model/DoubleMajorStudent.h"
+#include "../Model/Student.h"
 #include <fstream>
 #include <vector>
 #include <map>
 #include <sstream>
 #include <iterator>
+
+
 using namespace std;
 
 Controller::Controller(std::string currentSemester)
@@ -151,16 +154,47 @@ Professor& Controller::findProf(std::string ID){
     }
     throw invalid_argument("The Professor was not found!!");
 }
+Course& Controller::findCourse(std::string courseName){
+    for( auto& course : courses ){
+        if(course.getCourseName()==courseName){
+            return course;
+        }
+    }
+    throw invalid_argument("The course was not found!");
+}
 void Controller:: takeCourse(const std::string& studentID, const std::string& courseName){
-    if(inCourses(courseName)){
-        findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
+    bool ok=true;
+    for(auto& course:findCourse(courseName).preCourses){
+            if(!isPassed(studentID,course)){
+                ok=false;
+            }
+    }
+    if(ok) {
+        if (!inStudents(studentID)) {
+            throw invalid_argument("The student was not found!");
+        } else {
+                if (inCourses(courseName)) {
+                    findStudent(studentID).currentSemesterCourses.insert({courseName, 0});
+                }
+            }
+    }else {
+        for(auto& course:findCourse(courseName).preCourses){
+            if(!isPassed(studentID,course)){
+                cout<< course <<'\t';
+            }
+        }
+        throw invalid_argument("\nFor taking this course you most pass the above course(s) that you didn't.");
     }
 }
 void Controller::dropCourse(const std::string &studentID, const std::string &courseName) {
-    if(inStuCourses(studentID,courseName)){
-        findStudent(studentID).currentSemesterCourses.erase(courseName);
-    }else{
-        throw invalid_argument("The course in not in student current semester courses list!!");
+    if(!inStudents(studentID)){
+        throw invalid_argument("The student was not found!");
+    }else {
+        if (inStuCourses(studentID, courseName)) {
+            findStudent(studentID).currentSemesterCourses.erase(courseName);
+        } else {
+            throw invalid_argument("The course in not in student current semester courses list!!");
+        }
     }
 }
 bool Controller::inStuCourses(const std::string &studentId,const std::string &courseName) {
@@ -177,6 +211,7 @@ bool Controller::inStuCourses(const std::string &studentId,const std::string &co
     return false;
 }
 
+
 void Controller::submitGrade(const std::string& courseName,const std::string& studentId, double grade){
     if(inStuCourses(studentId,courseName)){
         findStudent(studentId).currentSemesterCourses.find(courseName)->second=grade;
@@ -192,11 +227,11 @@ void Controller::readMembersFromFile(int membersNumber) {
         try {
             input.getline(cmd,1000);
             member = (string) cmd;
-//-------------------------------------------------------------------------
+
             // Used to split string around spaces.
             istringstream ss(member);
             vector<string> results{};
-            // Traverse through all words
+            // Traverse through all word
             do {
                 // Read a word
                 string word;
@@ -204,22 +239,23 @@ void Controller::readMembersFromFile(int membersNumber) {
                 results.push_back(word);
                 // While there is more to read
             } while (ss);
-//-------------------------------------------------------------------------
-            if (results[0] == "P") {
+
+
+            if (results[0] == "P") {    //professor
                 double wh;
                 stringstream ss;
-                ss << results[5];
+                ss << results[5];  //convert string to double
                 ss >> wh;
                 auto prof=new Professor (results[1], results[2], results[3], wh, results[4]);
                 mathClass.push_back(prof);
-            } else if (results[0] == "S") {
+            } else if (results[0] == "S") {   //student
                 double wh;
                 stringstream ss;
                 ss << results[4];
                 ss >> wh;
                 auto stu=new Student (results[1], results[2], results[3], wh, vector<string>{}, map<string, double>{});
                 mathClass.push_back(stu);
-            } else if (results[0] == "D") {
+            } else if (results[0] == "D") {    //double major student
                 double wh;
                 stringstream ss;
                 ss << results[4];
@@ -233,14 +269,19 @@ void Controller::readMembersFromFile(int membersNumber) {
             cout<< e.what() <<endl;
         }
     }
-    for(const auto& mem  :mathClass){
-        cout << mem->getFirstName() <<endl;
-    }
 }
  double Controller:: CalculateTotalSalaryMath(){
     double totalSalary=0;
     for(const auto& person: mathClass){
-        totalSalary+=person->calculateSalary();
+        totalSalary+=person->calculateSalary(); //polymorphism
     }
     return totalSalary;
+}
+bool Controller::isPassed(std::string id,std::string courseName){
+    for (auto& course:findStudent(id).passedCourses) {
+        if(courseName == course){
+            return true;
+        }
+    }
+    return false;
 }
